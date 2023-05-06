@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{ url_for('static', filename='css/mypage.css') }}"
+        />
+        <title>Admin panel</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="topbar">
+                <div class="logo">
+                    <h2>Title</h2>
+                </div>
+                <div class="search">
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="search here"
+                    />
+                    <label for="search"><i class="fas fa-search"></i></label>
+                </div>
+                <i class="fas fa-bell"></i>
+                <div class="user">
+                    <img src="img/user.png" alt="" />
+                    <img
+                        src="{{ url_for('static', filename='img/user.png') }}"
+                        alt=""
+                    />
+                </div>
+            </div>
+            <div class="sidebar">
+                <ul>
+                    <li>
+                        <a id="dashboard" href="/">
+                            <i class="fas fa-th-large"></i>
+                            <div>Dashboard</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="mypage" href="/mypage">
+                            <i class="fas fa-user"></i>
+                            <div>My Page</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="odd" href="/odd">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>Odd</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="help" href="/">
+                            <i class="fas fa-question"></i>
+                            <div>Help</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="main">
+                <div class="cards"></div>
+                <div class="charts">
+                    <div class="chart">
+                        <h4>예상 전력 수요량: 4024kw</h4>
+                        <h4>예상 전기 요금: 344000원</h4>
+                    </div>
+                    <div class="chart lineChart">
+                        <h2>전력예측</h2>
+                        <div>
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+        <script
+            type="module"
+            src="{{ url_for('static', filename='js/chart1.js') }}"
+        ></script>
+        <script
+            type="module"
+            src="{{ url_for('static', filename='js/size.js') }}"
+        ></script>
+    </body>
+</html>
